@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+
 class App extends Component {
+
+   state = {
+  clicks: 0 ,
+  name: "clicks"
+  } 
+
+timesClicked = (a) =>{
+   this.setState({
+    clicks: this.state.clicks +1})
+   
+   if (this.state.clicks === 0){this.setState({
+    name: "click"})
+   } else {this.setState({
+    name: "clicks"})
+   }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+            <div id="bttnbody">
+              <button id="button" onClick={this.timesClicked}>{this.state.clicks} {this.state.name}</button>
+            </div>
     );
   }
 }
